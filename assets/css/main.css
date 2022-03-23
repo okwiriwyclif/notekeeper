@@ -1,0 +1,35 @@
+html {
+  background: rgb(19, 19, 19);
+  color: rgb(212, 212, 212);
+}
+
+.primary-button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: white;
+}
+
+.max-width-wrapper {
+  margin: 0 auto;
+  max-width: 1080px;
+  width: 100%;
+}
+
+.small-screen {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .large-screen {
+    display: none;
+  }
+
+  .small-screen {
+    display: block;
+  }
+  .max-width-wrapper {
+    margin: 0 auto;
+
+    /* padding-left: 3.2rem; */
+  }
+}
