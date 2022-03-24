@@ -24,7 +24,7 @@
 
       <div class="footer py-2">
           <div class="date">
-              {{propNote.edited}}
+              <!-- {{propNote.edited}} -->
               <datetimeformat :date="propNote.created"/>
           </div>
       </div>

@@ -15,6 +15,7 @@ export default {
             id:0,
             note:{
                 id:0,
+                noteNumber:0,
                 title:'Title',
                 description:'',
                 todos:[],
@@ -34,6 +35,8 @@ export default {
             this.note.id=notes+1;
 
             this.note.title='Note'+this.note.id;
+
+            this.note.created= Date.now();
 
             // this.note.id=this.note.id+this.note.title+this.id ;
 
