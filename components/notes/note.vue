@@ -23,7 +23,7 @@
                     <chevrondownicon/>
                 </div>
 
-                <div class="relative" v-if="actionsmodal" >
+                <div class="relative"  >
 
                     <div class="modal"  @click="actionsmodal=false">
 
@@ -52,7 +52,7 @@
 
         <div class="todos h-full flex flex-col justify-between" v-else>
 
-            <div class="todolist h-full" id="todolist">
+            <div class="todolist h-full pr-1" id="todolist" :class="{todoHeight:todosCompleted}">
 
                 <div class="emptytodo p-4 py-12 text-center" v-if="!note.todos.length">
                     Empty tasks list!
@@ -305,6 +305,7 @@ export default {
     color: #cecece;
 }
 
+
 .note .actionsmodal .modal{
     position: absolute;
     right: 0;
@@ -316,6 +317,12 @@ export default {
     box-shadow: 0px 16px 32px 0 #171c2610;
     border-radius: 8px;
     padding: 6px ;
+    display: none;
+}
+
+.note .actionsmodal:hover .modal{
+    transition: .8s;
+    display: block;
 }
 
 .note .actionsmodal svg{
@@ -341,6 +348,11 @@ export default {
     margin: 0;
     border: none;
     /* display: flex; */
+}
+
+.note .main .todolist.todoHeight{
+    height: 16rem;
+    
 }
 
 .note .title{
@@ -410,7 +422,7 @@ export default {
     background: #2245a7 ;
     background: #19337c ;
     background: #0f1d46 ;
-     background: #0a132e ;
+    /* background: #0a132e ; */
 }
 
 .note .todolist .todo{
