@@ -58,14 +58,18 @@
                     Empty tasks list!
                 </div>
 
-                <div class="todo " v-for="todo in sortTodos(note.todos) " :key="todo.id" >
+                <div v-if="note.todos.length" >
 
-                    <div class="flex items-center w-full" :class="{done:todo.done}" @click="upadateTodo(todo)" >
+                    <div class="todo " v-for="todo in sortedTodos " :key="todo.id" >
 
-                        <span class="icon flex items-center justify-center mr-1"  >
-                            <checkicon v-show="todo.done" />
-                        </span>
-                        <span > {{todo.name}}</span> 
+                        <div class="flex items-center w-full" :class="{done:todo.done}" @click="upadateTodo(todo)" >
+
+                            <span class="icon flex items-center justify-center mr-1"  >
+                                <checkicon v-show="todo.done" />
+                            </span>
+                            <span > {{todo.name}}</span> 
+
+                        </div>
 
                     </div>
 
@@ -74,8 +78,9 @@
             </div>
 
 
-            <div class="addtodo my-2" v-if="addTodo && !todosCompleted">
-                <div class="input flex items-center" @keyup.enter="saveTodo">
+            <div class="addtodo my-2" v-show="addTodo && !todosCompleted">
+
+                <div class="input flex items-center" @keyup.enter="saveTodo" >
 
                     <input v-model="todo.name" placeholder="Add to do" type="text" class="w-full">
 
@@ -84,6 +89,7 @@
                     </div>
 
                 </div>
+
             </div>
 
         </div>
@@ -140,15 +146,19 @@ export default {
 
         todosCompleted(){
 
+            
+
             let todos=this.note.todos;
+
+            if(!todos.length){
+                return
+            }
 
             let done=todos.filter(todo=>todo.done==true);
 
-            if(todos.length){
-                return todos.length==done.length
-            }
-
-            return false
+            
+            return todos.length==done.length
+            
 
         },
 
@@ -172,11 +182,21 @@ export default {
             return this.propNote
         },
 
+        sortedTodos(){
+
+            let sorted=this.note.todos;
+
+            sorted=sorted.sort((a,b)=>a.idNumber-b.idNumber);
+
+            return sorted
+
+        },
+
         
     },
 
     mounted() {
-        this.loadNote;
+        
          if(this.note.todos.length){
                 this.addTodo=true
             }
@@ -188,11 +208,7 @@ export default {
 
             let sorted=list;
 
-            if(list.length){
-
-                sorted=list.sort((a,b)=>a.idNumber-b.idNumber);
-
-            }
+            sorted=list.sort((a,b)=>a.idNumber-b.idNumber);
 
             return sorted
 
@@ -225,20 +241,19 @@ export default {
 
 
             this.todo={
-                id:Date.now(),
+                id:new Date(),
+                idNumber:Date.now(),
                 name:'',
                 created:new Date(),
                 done:false,
-
+                edited:new Date(),
             };
 
             const element = document.getElementById('todolist');
 
-            // element.scrollTop = element.scrollHeight+10000000;
+            element.scrollTop = element.scrollHeight;
 
-            element .scrollTop=element.lastChild.offsetTop
-
-            // element.scrollIntoView();
+            
 
         },
 
@@ -341,6 +356,7 @@ export default {
      border-radius: 12px;
      border-radius: 16px;
      background: rgba(0, 0, 0, 0.349);
+     background: rgba(255, 255, 255, 0.048);
 }
 
 .note .addtodo .input input{
@@ -390,13 +406,15 @@ export default {
 }
 
 .todoactive{
-   background: #3369FF ;
-   background: #2245a7 ;
-     background: #19337c ;
+    background: #3369FF ;
+    background: #2245a7 ;
+    background: #19337c ;
+    background: #0f1d46 ;
+     background: #0a132e ;
 }
 
 .note .todolist .todo{
-    padding: 4px 4px;
+    padding: 6px 4px;
     margin-bottom: 6px;
     cursor: pointer;
     border-radius: 10px;
