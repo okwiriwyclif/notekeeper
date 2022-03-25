@@ -83,8 +83,8 @@ export default {
 <style>
 
 .new-note-button{
-    height: 2.4rem;
-    width: 2.4rem;
+    height: 2.8rem;
+    width: 2.8rem;
     padding: 8px;
     background: rgb(218, 218, 218);
     border-radius: 14px;
@@ -105,6 +105,10 @@ export default {
         position: fixed;
         right: 10%;
         bottom: 8%;
+        height: 3.2rem;
+        width: 3.2rem;
+        border-radius: 2rem;
+        
     }
 }
 
