@@ -1,12 +1,76 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('~/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
 html {
-  background: rgb(19, 19, 19);
-  color: rgb(212, 212, 212);
+  font-family: 'Poppins', 'inter', 'Source Sans Pro', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 4px;
+  color: rgba(128, 128, 128, 0.192);
+  background-color: rgba(195, 195, 195, 0.054);
+  background: rgb(241, 241, 241);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: none;
+  background: rgb(226, 226, 226);
+  background: rgb(206, 206, 206);
+
+  /* background: #0567fbec; */
+  /* background: #0d6eff7e; */
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+.display-none {
+  display: none;
+}
+
+.dark-mode {
+  background: #0e121b;
+  color: #ffffff;
+}
+
+.default-background {
+  background: #0e121b;
+}
+
+.primary-background {
+  background: #3369ff;
+}
+
+.secondary-background {
+  background: #feb52b;
 }
 
 .primary-button {
   padding: 10px 16px;
+  border-radius: 2rem;
+  background: #3369ff;
+  cursor: pointer;
+}
+
+.secondary-button {
+  padding: 10px 16px;
   border-radius: 12px;
-  background: white;
+  /* border:  1px solid #3d4149; */
+  box-shadow: 0 0 0 2px #353945 inset;
+  cursor: pointer;
 }
 
 .max-width-wrapper {

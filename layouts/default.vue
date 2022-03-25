@@ -1,13 +1,17 @@
 <template>
-  <div class="min-w-screen">
+  <div class="min-w-screen dark-mode min-h-screen">
     <div >
 
-      <div class="sidebar">
+      <div class="sidebar ">
         <sidenav/>
       </div>
 
     <div>
-      <div class="topbar">
+      <div class="topbar large-screen">
+        <topnav/>
+      </div>
+
+      <div class="topbar small-screen default-background">
         <topnav/>
       </div>
       <Nuxt />
@@ -18,30 +22,13 @@
 </template>
 
 <style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+
 .topbar{
   padding: 8px 12px;
-  background: inherit;
+  /* background: inherit; */
   position: sticky;
   top: 0;
-  background: rgba(0, 0, 0, 0.972);
+  
 }
 .sidebar{
 
@@ -52,10 +39,10 @@ html {
   top: 0;
   bottom: 0;
   background: inherit;
-  background: rgba(0, 0, 0, 0.856);
-  padding: 8px;
+  padding:1rem 12px;
   z-index: 10;
-  box-shadow: 0 0 0px 2px rgba(75, 75, 75, 0.219);
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.178);
+
 }
 
 @media (max-width:800px) {

@@ -32,11 +32,11 @@ export default {
 
             let notes=this.$store.state.notes.list.length;
 
-            this.note.id=notes+1;
+            this.note.noteNumber=notes+1;
 
-            this.note.title='Note'+this.note.id;
+            this.note.id=Date.now()+this.id;
 
-            this.note.created= Date.now();
+            this.note.created= new Date;
 
             // this.note.id=this.note.id+this.note.title+this.id ;
 
@@ -67,9 +67,13 @@ export default {
 
         colors(){
 
-           let colors= [ 'rgb(39, 39, 39)', '#000080', '#007575', '#55002A','#755800', '#694f00', '#555D50',' #75003A'];
+        let colors=['#3369FF','#AE3B76','#FF7746','#0E121B']
 
-           return colors
+        return colors
+
+        // let colors= [ 'rgb(39, 39, 39)', '#000080', '#007575', '#55002A','#755800', '#694f00', '#555D50',' #75003A'];
+
+        
         }
     }
 

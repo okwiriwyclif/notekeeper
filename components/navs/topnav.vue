@@ -9,7 +9,7 @@
 
       </div>
 
-      <div>
+      <div class="primary-button">
           sign in
       </div>
   </div>

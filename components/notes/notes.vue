@@ -9,7 +9,7 @@
     </div>
     
   <div class=" flex flex-wrap" v-if="notes.length">
-      <div class="w-full lg:w-1/3" v-for="note in notes" :key="note.id">
+      <div class="w-full md:w-1/2 lg:w-1/3" v-for="note in notes" :key="note.id">
           <note :propNote="note"/>
       </div>
   </div>
@@ -26,11 +26,12 @@ export default {
     data() {
         return {
             note:{
-                id:Date.now(),
+                id:0,
+                noteNumber:0,
                 title:'Title',
                 description:'',
                 todos:[],
-                created:Date.now(),
+                created:new Date(),
                 edited:new Date(),
                 backgroundColor:'rgb(39, 39, 39)',
             }
@@ -40,20 +41,24 @@ export default {
     mounted() {
 
          if(!this.notes.length){
-                this.note.id=1;
+
+                this.note.id=Date.now();
+
                 this.$store.dispatch('notes/addNote',this.note);
         }
     },
 
     computed:{
+
         notes(){
 
             let notes=[...this.$store.state.notes.list];
 
             notes=notes.sort((a,b)=>b.id-a.id);
 
-            return notes
+            return [...notes]
         }
+
     }
 
 }
