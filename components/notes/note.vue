@@ -423,6 +423,8 @@ export default {
     background: #19337c ;
     background: #0f1d46 ;
     /* background: #0a132e ; */
+    background: #3369ff;
+    color: white;
 }
 
 .note .todolist .todo{
@@ -468,5 +470,18 @@ export default {
     /* background: #b1502d ; */
     background: rgb(42, 87, 42);
     background: #44726c;
+
+    color: white;
+    background: #f7a400;
+}
+
+.completed textarea{
+    color: white;
+    /* background: #f7a400; */
+}
+
+.addtodo input{
+    color: white;
+    /* background: #f7a400; */
 }
 </style>
